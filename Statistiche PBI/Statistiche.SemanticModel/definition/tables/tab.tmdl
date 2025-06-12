@@ -1,0 +1,78 @@
+table tab
+	lineageTag: 3d71c8c3-5347-4c01-93d9-b70ec4d8d268
+
+	column Istanza
+		lineageTag: 5a9080e9-6a91-41db-a58d-64b13b716bf3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Statistiche[Istanza]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Algoritmo
+		lineageTag: ef77c682-1cea-4ef9-acfa-180892881cb7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Statistiche[Algoritmo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Distanza
+		lineageTag: 1cc1930c-3666-449e-b9e7-7952a3476b62
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Statistiche[Distanza]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tempo
+		lineageTag: f83adcf4-ce9c-47a4-872c-d7e33b427b8b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Statistiche[Tempo]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ottimo
+		lineageTag: 56ff6f88-a7b0-4ede-a9b2-2a2e5be7f699
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ottimo]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Gap
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: 6ed0c062-3c29-4995-bccc-ad0bf7076c10
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Gap]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tab = calculated
+		mode: import
+		source = ```
+				
+				VAR a =SUMMARIZECOLUMNS(
+				    Statistiche[Istanza],
+				    Statistiche[Algoritmo],
+				    Statistiche[Distanza],
+				    Statistiche[Tempo],
+				    "Ottimo", CALCULATE(MIN(Statistiche[Distanza]), ALLEXCEPT(Statistiche, Statistiche[Istanza]))
+				)
+				var b = FILTER(a,Statistiche[Algoritmo] <> "Gurobi")
+				var c = ADDCOLUMNS(b,"Gap",ABS([Ottimo]-Statistiche[Distanza])/Statistiche[Distanza]*100)
+				--VAR d = ADDCOLUMNS(c,"Efficenza",1/([Gap]*[Tempo]))
+				return c
+				
+				```
+
+	annotation PBI_Id = f0bac454631f45df9673e39a386148e9
+

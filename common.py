@@ -1,8 +1,6 @@
 from typing import List, Tuple,Dict,Any
 from math import sqrt
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch
-
 
 def readNodes(filename: str) -> Dict[int, Tuple[float, float]]:
    
@@ -44,28 +42,57 @@ def calculateEdges(nodes: Dict[int, Tuple[float, float]], dimension: int) -> Dic
    
     return distances
 
-def plotSolution(Nodes: Dict[int, Tuple[float, float]], edges, title="Soluzione TSP"):
-    plt.figure(figsize=(50, 50))
-    #ax = plt.gca()  # Per aggiungere oggetti disegnabili (patches)
-    for (i, j) in edges:
-        x = [Nodes[i][0], Nodes[j][0]]
-        y = [Nodes[i][1], Nodes[j][1]]
-        plt.plot(x, y, 'b-', linewidth=1)
+def plotOrientedSolution(nodes, solution, title="Soluzione Greedy TSP"):
+    
+    plt.figure(figsize=(10, 8))
+    
+    for (i,j) in solution:
+        x_start, y_start = nodes[i]
+        x_end, y_end = nodes[j]
         
-        #x_start, y_start = Nodes[i]
-        #x_end, y_end = Nodes[j]
-        #arrow = FancyArrowPatch(
-        #    (x_start, y_start), (x_end, y_end),
-        #    arrowstyle='->',
-        #    color='blue',
-        #    mutation_scale=10,
-        #    linewidth=1
-        #)
-        #ax.add_patch(arrow)
-    for k, (x, y) in Nodes.items():
+        # Disegna una freccia orientata da i a j
+        plt.annotate("", xy=(x_end, y_end), xytext=(x_start, y_start), arrowprops=dict(arrowstyle="->", color="blue", lw=1))
+    
+    for k, (x,y) in nodes.items():
         plt.plot(x, y, 'ro')
         plt.text(x, y + 1, str(k), fontsize=8, ha='center')
+    
     plt.title(title)
     plt.axis('equal')
     plt.grid(True)
     plt.show()
+    
+def valueObj(tour: list[int], distances: Dict[Tuple[int,int],float]) -> float:
+    return sum(distances[(tour[i], tour[i+1])] for i in range(len(tour)-1))
+
+def twoOptSwap(tour: List[int], i: int, k: int) -> List:
+    return tour[:i] + list(reversed(tour[i:k+1])) + tour[k+1:]
+
+def buildTour(edges: List[Tuple[int,int]]) -> List:
+    edgeSorted = sorted(edges, key=lambda x: x[0])
+    
+    Tour: list = []
+    
+    startNode = edgeSorted[0][0]
+    
+    Tour.append(startNode)
+    
+    currentNode = startNode
+    
+    while True: 
+        nextEdge = None
+        for edge in edgeSorted:
+            if edge[0] == currentNode:
+                nextEdge = edge
+                break
+        
+        nextNode = nextEdge[1]
+        
+        if nextNode == startNode:
+            Tour.append(startNode)
+            break
+        
+        Tour.append(nextNode)
+        currentNode = nextNode
+
+    return Tour

@@ -1,32 +1,34 @@
 import math
 import random
 import joblib as jb
-from common import readNodes, calculateEdges, plotSolution
+from common import readNodes, calculateEdges, plotOrientedSolution,buildTour,twoOptSwap,valueObj
 from typing import List, Tuple, Dict, Any
 import time
 import copy
 from itertools import combinations
+import itertools
 
-FILE_NAME = "ch130.tsp"
+FILE_NAME = "att48/att48.tsp"
 
 def main():
     # Da cambiare in caso di grid search
-    random.seed(227)
+    random.seed(124)
+
 
     nodes = readNodes(FILE_NAME)
     dimension = len(nodes)
     distances = calculateEdges(nodes, dimension)
     
-    sol = jb.load("bestSolutionGreedyMatrixCh130.joblib")
-    solutionStart = sol.get('Solution')
+    sol = jb.load("att48/solutions/att48_greedy0.joblib")
+    solutionStart = sol.get('solution')
     
     tour = buildTour(solutionStart)
     
     # Iperparametri
-    tK = 90 # Temperatura iniziale
+    tK = 100 # Temperatura iniziale
     nIter = 50 # Numero iterazioni per ogni temperatura
-    alfa = 0.995 # Coefficiente di raffredamento
-    nNoImprovement = 2000 # Numero di mosse peggiorative consecutive
+    alfa = 0.98 # Coefficiente di raffredamento
+    nNoImprovement = 2100 # Numero di mosse peggiorative consecutive
     
     startTime = time.perf_counter()
     tour = simulatedAnnealing(tK,alfa,tour,distances,nIter,nNoImprovement)
@@ -36,13 +38,13 @@ def main():
     
     solution = [(tour[i], tour[i+1]) for i in range(len(tour) - 1)]
     
-    plotSolution(nodes, solution, title=f"Simulated Annealing TSP con distanza: {valueObj(tour,distances):.2f}. Tempo: {(endTime-startTime):.6f} s.")
+    plotOrientedSolution(nodes, solution, title=f"Soluzione Simulated Annealing ATSP. Distance: {valueObj(tour,distances):.2f}. Time: {(endTime-startTime):.6f}s")
     
 def gridSearchSimulatedAnnealing(startTour: List[int], distances: Dict[Tuple[int, int], float]):
     tK_values = [100, 150, 90, 80]
     alfa_values = [0.99, 0.995, 0.98, 0.97]
     nIter_values = [40, 50, 20, 30, 10]
-    nNoImprovement_values = [1000, 2000, 1500, 2100]
+    nNoImprovement_values = [200,800,1000, 2000, 1500, 2100,300]
 
     param_grid = list(itertools.product(tK_values, alfa_values, nIter_values, nNoImprovement_values))
 
@@ -96,42 +98,6 @@ def simulatedAnnealing(T_k: float, alfa: float, tour: List[int], distances: Dict
         T_k *= alfa
 
     return bestTour
-
-def buildTour(edges: List[Tuple[int,int]]) -> List[int]:
-    
-    edgeSorted = sorted(edges, key=lambda x: x[0])
-    
-    tour: list[int] = []
-    
-    startNode = edgeSorted[0][0]
-    
-    tour.append(startNode)
-    
-    currentNode = startNode
-    
-    while True: 
-        nextEdge = None
-        for edge in edgeSorted:
-            if edge[0] == currentNode:
-                nextEdge = edge
-                break
-        
-        nextNode = nextEdge[1]
-        
-        if nextNode == startNode:
-            tour.append(startNode)
-            break
-        
-        tour.append(nextNode)
-        currentNode = nextNode
-
-    return tour
-    
-def valueObj(tour: list[int], distances: Dict[Tuple[int,int],float]) -> float:
-    return sum(distances[(tour[i], tour[i+1])] for i in range(len(tour)-1))
-
-def twoOptSwap(tour: List[int], i: int, k: int) -> List:
-    return tour[:i] + list(reversed(tour[i:k+1])) + tour[k+1:]
 
 def isAcceptable(startTour: List[int], endTour: List[int], T_k: float, distances: Dict[Tuple[int, int], float]) -> bool:
     delta = valueObj(endTour, distances) - valueObj(startTour, distances)

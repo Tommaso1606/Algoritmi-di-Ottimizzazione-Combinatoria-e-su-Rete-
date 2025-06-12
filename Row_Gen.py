@@ -1,10 +1,10 @@
-from common import readNodes,calculateEdges,plotSolution
+from common import readNodes,calculateEdges,plotOrientedSolution
 import gurobipy as gp
 from gurobipy import GRB
 from typing import List, Tuple,Dict,Any
 import time
 
-FILE_NAME = "lin318.tsp"
+FILE_NAME = "lin318/lin318.tsp"
 
 def main():
 
@@ -18,7 +18,7 @@ def main():
     SOL,distance = solve(Nodes,Dist)
     endTime = time.perf_counter()  
       
-    plotSolution(Nodes, SOL, title=f"Soluzione Ottima TSP con distance: {distance:.2f}. Tempo: {(endTime-startTime):.6f} s.")
+    plotOrientedSolution(Nodes, SOL, title=f"Soluzione Ottima ATSP. Distance: {distance:.2f}. Time: {(endTime-startTime):.6f}s")
 
 def solve(Nodes,Dist):
     mod = gp.Model("TSP")

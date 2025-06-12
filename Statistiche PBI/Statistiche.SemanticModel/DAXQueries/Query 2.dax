@@ -1,0 +1,16 @@
+EVALUATE
+VAR a = 
+    ADDCOLUMNS(
+        FILTER(
+            SUMMARIZECOLUMNS(
+                Statistiche[Istanza],
+                Statistiche[Algoritmo],
+                "Distanza", MAX(Statistiche[Distanza]),
+                "Ottimo", CALCULATE(MIN(Statistiche[Distanza]), FILTER(Statistiche, Statistiche[Algoritmo] = "Gurobi"))
+            ),
+            [Algoritmo] <> "Gurobi" && NOT(ISBLANK([Distanza]))
+        ),
+        "Gap %", ABS([Distanza] - [Ottimo]) / [Ottimo] * 100
+    )
+
+RETURN a

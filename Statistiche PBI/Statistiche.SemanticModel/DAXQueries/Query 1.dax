@@ -1,0 +1,14 @@
+EVALUATE
+VAR a =SUMMARIZECOLUMNS(
+    Statistiche[Istanza],
+    Statistiche[Algoritmo],
+    Statistiche[Distanza],
+    Statistiche[Tempo],
+    "Ottimo", CALCULATE(MIN(Statistiche[Distanza]), ALLEXCEPT(Statistiche, Statistiche[Istanza]))
+)
+var b = FILTER(a,Statistiche[Algoritmo] <> "Gurobi")
+var c = ADDCOLUMNS(b,"Gap",ABS([Ottimo]-Statistiche[Distanza])/Statistiche[Distanza])
+VAR d = ADDCOLUMNS(c,"Efficenza",1/([Gap]*[Tempo]))
+return d
+
+

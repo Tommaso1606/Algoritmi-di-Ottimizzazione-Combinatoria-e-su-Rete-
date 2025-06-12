@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Tuple
 from joblib import dump
 from math import sqrt, inf
 from matplotlib import pyplot as plt
+from common import readNodes,plotOrientedSolution
 import time
 
 import os
@@ -59,36 +60,9 @@ def main():
     
     for key in solutions.keys():
         solution = solutions[key]
-        plotOrientedSolution(nodes, solution[SOLUTION], title=f"Soluzione Greedy ATSP con start: {solution[START]}. Distance: {solution[DISTANCE]:.2f}. Time: {solution[TIME]:.6f}")
+        plotOrientedSolution(nodes, solution[SOLUTION], title=f"Soluzione Greedy ATSP con start: {solution[START]}. Distance: {solution[DISTANCE]:.2f}. Time: {solution[TIME]:.6f}s")
         dump({SOLUTION: solution[SOLUTION], START: solution[START], DISTANCE: solution[DISTANCE], TIME: solution[TIME]}, f"./{solutionsPath}/{filename}_greedy{key}.joblib")
     return
-
-def readNodes(filename: str):
-    
-    nodes: Dict[Any, Tuple[float, float]] = {}
-    
-    # Lettura nodi e coordinate
-    with open(filename, mode="r") as graph:
-        
-        line = graph.readline()
-        
-        while not line.startswith("EOF"):
-            
-            if line.startswith("DIMENSION"):
-                dimension = int(line.split()[1])
-            
-            if line.startswith("NODE"):
-                for i in range(dimension):
-                    
-                    line = graph.readline()
-                    splitLine = line.split()
-                    nodes[int(splitLine[0])] = (float(splitLine[1]), float(splitLine[2]))
-            
-            line = graph.readline()
-        
-        graph.close()
-    
-    return nodes
 
 def calculateEdges(nodes: Dict[int, Tuple[float, float]], dimension: int):
     
@@ -151,26 +125,6 @@ def calculateBestNearestNeighbour(edges: Dict[Tuple[int, int], float], dimension
             bestStart = i
     
     return solution, distance, bestStart
-    
-def plotOrientedSolution(nodes, solution, title="Soluzione Greedy TSP"):
-    
-    plt.figure(figsize=(10, 8))
-    
-    for (i,j) in solution:
-        x_start, y_start = nodes[i]
-        x_end, y_end = nodes[j]
-        
-        # Disegna una freccia orientata da i a j
-        plt.annotate("", xy=(x_end, y_end), xytext=(x_start, y_start), arrowprops=dict(arrowstyle="->", color="blue", lw=1))
-    
-    for k, (x,y) in nodes.items():
-        plt.plot(x, y, 'ro')
-        plt.text(x, y + 1, str(k), fontsize=8, ha='center')
-    
-    plt.title(title)
-    plt.axis('equal')
-    plt.grid(True)
-    plt.show()
 
 if __name__ == "__main__":
     main()

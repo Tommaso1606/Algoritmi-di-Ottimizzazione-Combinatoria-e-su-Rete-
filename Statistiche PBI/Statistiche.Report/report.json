@@ -1,0 +1,81 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.65\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Pagina 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "488d56f3eb00c72f6a5d",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"d7475344c34ef28c6d6f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":85.55555555555556,\"y\":187.77777777777777,\"z\":0,\"width\":944.4444444444445,\"height\":441.1111111111111,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"tab.Algoritmo\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(tab.Gap)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"tab\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Algoritmo\"},\"Name\":\"tab.Algoritmo\",\"NativeReferenceName\":\"Algoritmo\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Gap\"}},\"Function\":1},\"Name\":\"Sum(tab.Gap)\",\"NativeReferenceName\":\"Media di Gap\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Gap\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"lineStyles\":[{\"properties\":{\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[{\"name\":\"61238cc6de1282fb9c9c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"tab\"}},\"Property\":\"Istanza\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"tab\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Istanza\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'pr2392'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+          "height": 441.11,
+          "width": 944.44,
+          "x": 85.56,
+          "y": 187.78,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "att48",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"b82f3d5e1c1880f5fc27\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Statistiche\"}},\"Property\":\"Istanza\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Statistiche\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Istanza\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'att48'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "546237f4c36507b65e35",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"8e13a673b47da61e6632\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1139.8886827458257,\"y\":32.05936920222634,\"z\":1000,\"width\":140.1113172541744,\"height\":67.6808905380334,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Statistiche.Istanza\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Statistiche\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Istanza\"},\"Name\":\"Statistiche.Istanza\",\"NativeReferenceName\":\"Istanza\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 67.68,
+          "width": 140.11,
+          "x": 1139.89,
+          "y": 32.06,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"c4c2df02c3c71beae846\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.122448979591837,\"y\":32.05936920222634,\"z\":0,\"width\":857.2912801484231,\"height\":327.7179962894249,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Statistiche.Algoritmo\",\"active\":true}],\"Series\":[{\"queryRef\":\"Statistiche.Istanza\"}],\"Y\":[{\"queryRef\":\"Statistiche.SumDistanza\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Statistiche\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Algoritmo\"},\"Name\":\"Statistiche.Algoritmo\",\"NativeReferenceName\":\"Algoritmo\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Istanza\"},\"Name\":\"Statistiche.Istanza\",\"NativeReferenceName\":\"Istanza\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SumDistanza\"},\"Name\":\"Statistiche.SumDistanza\",\"NativeReferenceName\":\"SumDistanza\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SumDistanza\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.6}}}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"seriesLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"lineStyles\":[{\"properties\":{\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#01910F'\"}}}}},\"markerSize\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"areaMatchStrokeColor\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"areaColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.4}}}}}}},{\"properties\":{\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":-0.25}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Statistiche\"}},\"Property\":\"Istanza\"}},\"Right\":{\"Literal\":{\"Value\":\"'att48'\"}}}}}]}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#00EA33'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Statistiche\"}},\"Property\":\"Istanza\"}},\"Right\":{\"Literal\":{\"Value\":\"'ch130'\"}}}}}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Trend Funzione Obiettivo att48'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 327.72,
+          "width": 857.29,
+          "x": 26.12,
+          "y": 32.06,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"dee142310150ac5fc802\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.122448979591837,\"y\":372.8385899814471,\"z\":2000,\"width\":857.2912801484231,\"height\":327.7179962894249,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Statistiche.Algoritmo\",\"active\":true}],\"Series\":[{\"queryRef\":\"Statistiche.Istanza\"}],\"Y\":[{\"queryRef\":\"Statistiche.SumTempo\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Statistiche\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Algoritmo\"},\"Name\":\"Statistiche.Algoritmo\",\"NativeReferenceName\":\"Algoritmo\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Istanza\"},\"Name\":\"Statistiche.Istanza\",\"NativeReferenceName\":\"Istanza\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SumTempo\"},\"Name\":\"Statistiche.SumTempo\",\"NativeReferenceName\":\"SumTempo\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"SumTempo\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"gridlineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.6}}}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"seriesLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"lineStyles\":[{\"properties\":{\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"markerSize\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#01910F'\"}}}}},\"areaColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.4}}}}},\"areaMatchStrokeColor\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":-0.25}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Statistiche\"}},\"Property\":\"Istanza\"}},\"Right\":{\"Literal\":{\"Value\":\"'att48'\"}}}}}]}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#00EA33'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Statistiche\"}},\"Property\":\"Istanza\"}},\"Right\":{\"Literal\":{\"Value\":\"'ch130'\"}}}}}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Trend Funzione Obiettivo att48'\"}}},\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"border\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 327.72,
+          "width": 857.29,
+          "x": 26.12,
+          "y": 372.84,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
