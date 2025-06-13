@@ -17,7 +17,7 @@ annotation __TEdtr = 1
 annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
 
 ref table Statistiche
-ref table tab
+ref table Statistiche_Gap
 
 ref cultureInfo it-IT
 

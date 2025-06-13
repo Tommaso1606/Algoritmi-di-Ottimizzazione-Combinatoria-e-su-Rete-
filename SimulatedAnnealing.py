@@ -8,43 +8,43 @@ import copy
 from itertools import combinations
 import itertools
 
-FILE_NAME = "att48/att48.tsp"
+FILE_NAME = "lin318/lin318.tsp"
 
 def main():
     # Da cambiare in caso di grid search
-    random.seed(124)
+    #random.seed(592)
 
 
     nodes = readNodes(FILE_NAME)
     dimension = len(nodes)
     distances = calculateEdges(nodes, dimension)
     
-    sol = jb.load("att48/solutions/att48_greedy0.joblib")
+    sol = jb.load("lin318/solutions/lin318_greedy0.joblib")
     solutionStart = sol.get('solution')
     
     tour = buildTour(solutionStart)
     
     # Iperparametri
-    tK = 100 # Temperatura iniziale
-    nIter = 50 # Numero iterazioni per ogni temperatura
-    alfa = 0.98 # Coefficiente di raffredamento
-    nNoImprovement = 2100 # Numero di mosse peggiorative consecutive
+    tK = 90 # Temperatura iniziale
+    nIter = 40 # Numero iterazioni per ogni temperatura
+    alfa = 0.995 # Coefficiente di raffredamento
+    nNoImprovement = 4000 # Numero di mosse peggiorative consecutive
     
     startTime = time.perf_counter()
-    tour = simulatedAnnealing(tK,alfa,tour,distances,nIter,nNoImprovement)
+    #tour = simulatedAnnealing(tK,alfa,tour,distances,nIter,nNoImprovement)
     endTime = time.perf_counter()
     
-    #gridSearchSimulatedAnnealing(tour, distances)
+    gridSearchSimulatedAnnealing(tour, distances)
     
-    solution = [(tour[i], tour[i+1]) for i in range(len(tour) - 1)]
+    #solution = [(tour[i], tour[i+1]) for i in range(len(tour) - 1)]
     
-    plotOrientedSolution(nodes, solution, title=f"Soluzione Simulated Annealing ATSP. Distance: {valueObj(tour,distances):.2f}. Time: {(endTime-startTime):.6f}s")
+    #plotOrientedSolution(nodes, solution, title=f"Soluzione Simulated Annealing ATSP. Distance: {valueObj(tour,distances):.2f}. Time: {(endTime-startTime):.6f}s")
     
 def gridSearchSimulatedAnnealing(startTour: List[int], distances: Dict[Tuple[int, int], float]):
     tK_values = [100, 150, 90, 80]
     alfa_values = [0.99, 0.995, 0.98, 0.97]
     nIter_values = [40, 50, 20, 30, 10]
-    nNoImprovement_values = [200,800,1000, 2000, 1500, 2100,300]
+    nNoImprovement_values = [1500,2000,2500,3000,4000,5000]
 
     param_grid = list(itertools.product(tK_values, alfa_values, nIter_values, nNoImprovement_values))
 
@@ -53,6 +53,8 @@ def gridSearchSimulatedAnnealing(startTour: List[int], distances: Dict[Tuple[int
     best_seed = None
 
     print(f"Testing {len(param_grid)} combinations...")
+
+    startTime = time.perf_counter()
 
     for idx, (tK, alfa, nIter, nNoImprovement) in enumerate(param_grid):
         seed = 42 + idx  # seed unico per ogni combinazione, riproducibile
@@ -70,9 +72,11 @@ def gridSearchSimulatedAnnealing(startTour: List[int], distances: Dict[Tuple[int
             best_params = (tK, alfa, nIter, nNoImprovement)
             best_seed = seed
 
+    endTime = time.perf_counter()
+    
     print("\n🏆 Best combination:")
     print(f"tK={best_params[0]}, alfa={best_params[1]}, nIter={best_params[2]}, nNoImprovement={best_params[3]}, seed={best_seed}")
-    print(f"Best score: {best_score:.2f}")
+    print(f"Best score: {best_score:.2f}. Time: {(endTime-startTime):.6f}s")
 
 def simulatedAnnealing(T_k: float, alfa: float, tour: List[int], distances: Dict[Tuple[int,int], float], nIter: int, nNoImprovement: int, seed: int = None) -> List[int]:
     
@@ -88,13 +92,14 @@ def simulatedAnnealing(T_k: float, alfa: float, tour: List[int], distances: Dict
             newTour = twoOptSwap(tour, i, k)
             
             if isAcceptable(tour, newTour, T_k, distances):
-                tour = newTour
-                noImprovement = 0
+                tour = newTour        
                 if valueObj(tour, distances) < valueObj(bestTour, distances):
                     bestTour = copy.deepcopy(tour)
+                    noImprovement = 0
+                else:
+                    noImprovement += 1    
             else:
-                noImprovement += 1
-        
+                noImprovement += 1    
         T_k *= alfa
 
     return bestTour

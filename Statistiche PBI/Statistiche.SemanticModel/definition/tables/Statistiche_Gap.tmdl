@@ -1,4 +1,4 @@
-table tab
+table Statistiche_Gap
 	lineageTag: 3d71c8c3-5347-4c01-93d9-b70ec4d8d268
 
 	column Istanza
@@ -56,7 +56,7 @@ table tab
 
 		annotation SummarizationSetBy = Automatic
 
-	partition tab = calculated
+	partition Statistiche_Gap = calculated
 		mode: import
 		source = ```
 				
@@ -68,7 +68,7 @@ table tab
 				    "Ottimo", CALCULATE(MIN(Statistiche[Distanza]), ALLEXCEPT(Statistiche, Statistiche[Istanza]))
 				)
 				var b = FILTER(a,Statistiche[Algoritmo] <> "Gurobi")
-				var c = ADDCOLUMNS(b,"Gap",ABS([Ottimo]-Statistiche[Distanza])/Statistiche[Distanza]*100)
+				var c = ADDCOLUMNS(b,"Gap",ABS([Ottimo]-Statistiche[Distanza])/Statistiche[Distanza])
 				--VAR d = ADDCOLUMNS(c,"Efficenza",1/([Gap]*[Tempo]))
 				return c
 				
