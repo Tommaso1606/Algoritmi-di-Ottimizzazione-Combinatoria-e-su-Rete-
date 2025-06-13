@@ -42,7 +42,7 @@ def calculateEdges(nodes: Dict[int, Tuple[float, float]], dimension: int) -> Dic
    
     return distances
 
-def plotOrientedSolution(nodes, solution, title="Soluzione Greedy TSP"):
+def plotOrientedSolution(nodes, solution, title="Soluzione Greedy TSP",istanceName = "att48",fileName="a"):
     
     plt.figure(figsize=(10, 8))
     
@@ -60,7 +60,8 @@ def plotOrientedSolution(nodes, solution, title="Soluzione Greedy TSP"):
     plt.title(title)
     plt.axis('equal')
     plt.grid(True)
-    plt.show()
+    plt.savefig(rf"{istanceName}\{fileName}.png")
+    plt.show()  
     
 def valueObj(tour: list[int], distances: Dict[Tuple[int,int],float]) -> float:
     return sum(distances[(tour[i], tour[i+1])] for i in range(len(tour)-1))

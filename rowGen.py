@@ -4,11 +4,12 @@ from gurobipy import GRB
 from typing import List, Tuple,Dict,Any
 import time
 
-FILE_NAME = "lin318/lin318.tsp"
+
+ISTANCE_NAME = "ch130"
 
 def main():
 
-    Nodes = readNodes(FILE_NAME)
+    Nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
 
     dimension = len(Nodes)
 
@@ -18,7 +19,7 @@ def main():
     SOL,distance = solve(Nodes,Dist)
     endTime = time.perf_counter()  
       
-    plotOrientedSolution(Nodes, SOL, title=f"Soluzione Ottima ATSP. Distance: {distance:.2f}. Time: {(endTime-startTime):.6f}s")
+    plotOrientedSolution(Nodes, SOL, title=f"Soluzione Ottima ATSP. Distance: {distance:.2f}. Time: {(endTime-startTime):.6f}s",istanceName=ISTANCE_NAME,fileName=f"{ISTANCE_NAME}_Ottimo")
 
 def solve(Nodes,Dist):
     mod = gp.Model("TSP")

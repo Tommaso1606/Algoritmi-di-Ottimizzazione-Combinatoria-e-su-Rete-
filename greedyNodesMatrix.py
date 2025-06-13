@@ -8,7 +8,7 @@ import time
 import os
 import shutil
 
-PATH = "pr2392.tsp"
+PATH = "ch130.tsp"
 BEST = 0
 SOLUTION = "solution"
 DISTANCE = "distance"
@@ -60,7 +60,7 @@ def main():
     
     for key in solutions.keys():
         solution = solutions[key]
-        plotOrientedSolution(nodes, solution[SOLUTION], title=f"Soluzione Greedy ATSP con start: {solution[START]}. Distance: {solution[DISTANCE]:.2f}. Time: {solution[TIME]:.6f}s")
+        plotOrientedSolution(nodes, solution[SOLUTION], title=f"Soluzione Greedy ATSP con start: {solution[START]}. Distance: {solution[DISTANCE]:.2f}. Time: {solution[TIME]:.6f}s",istanceName=PATH[:-4],fileName=f"{PATH[:-4]}_Greedy_{solution[START]}")
         dump({SOLUTION: solution[SOLUTION], START: solution[START], DISTANCE: solution[DISTANCE], TIME: solution[TIME]}, f"./{solutionsPath}/{filename}_greedy{key}.joblib")
     return
 

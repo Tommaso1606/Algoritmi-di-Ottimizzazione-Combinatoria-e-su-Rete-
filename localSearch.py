@@ -6,27 +6,38 @@ import copy
 from itertools import combinations
 import random
 
-FILE_NAME = "att48/att48.tsp"
+ISTANCE_NAME = "ch130"
 
 def main():
-    nodes = readNodes(FILE_NAME)    
+    nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
     dimension = len(nodes)
     distances = calculateEdges(nodes, dimension)
     
-    sol = jb.load("att48/solutions/att48_greedy0.joblib")
+    sol = jb.load(f"{ISTANCE_NAME}/solutions/{ISTANCE_NAME}_greedy0.joblib")
     solutionStart = sol.get('solution')
+    solutionTime = sol.get('time')
     
     tour = buildTour(solutionStart)
-    #print(f'tour: {tour}')
+
+    # Soluzione First Improvement
     startTime = time.perf_counter()
-    #tour = localSearchFirstImprovement(tour,distances)
-    tour = localSearchBestImprovement(tour,distances)
+    tour1 = localSearchFirstImprovement(tour,distances)
     endTime = time.perf_counter()
+    endTime += solutionTime
     
-    solution = [(tour[i], tour[i+1]) for i in range(len(tour) - 1)]
+    solution = [(tour1[i], tour1[i+1]) for i in range(len(tour1) - 1)]
     
-    #plotOrientedSolution(nodes, solution, title=f"Soluzione Local Search First Improvement ATSP. Distance: {valueObj(tour,distances):.2f}. Time: {(endTime-startTime):.6f}s")
-    plotOrientedSolution(nodes, solution, title=f"Soluzione Local Search Best Improvement ATSP. Distance: {valueObj(tour,distances):.2f}. Time: {(endTime-startTime):.6f}s")
+    plotOrientedSolution(nodes, solution, title=f"Soluzione Local Search First Improvement ATSP. Distance: {valueObj(tour1,distances):.2f}. Time: {(endTime-startTime):.6f}s",istanceName=ISTANCE_NAME,fileName=f"{ISTANCE_NAME}_LS_FI")
+    
+    # Soluzione Best Improvement
+    startTime = time.perf_counter()
+    tour2 = localSearchBestImprovement(tour,distances)
+    endTime = time.perf_counter()
+    endTime += solutionTime
+    
+    solution = [(tour2[i], tour2[i+1]) for i in range(len(tour2) - 1)]
+    
+    plotOrientedSolution(nodes, solution, title=f"Soluzione Local Search Best Improvement ATSP. Distance: {valueObj(tour2,distances):.2f}. Time: {(endTime-startTime):.6f}s",istanceName=ISTANCE_NAME,fileName=f"{ISTANCE_NAME}_LS_BI")
     
 def localSearchFirstImprovement(tour: List, distances: Dict[Tuple[int,int], float]) -> List:
 
@@ -60,7 +71,6 @@ def localSearchBestImprovement(tour: List, distances: Dict[Tuple[int,int], float
             newTour = twoOptSwap(tour, i, k)
             if isAcceptable(tour, newTour, distances):
                 tour = newTour
-                #print(f'miglioramento trovato {valueObj(tour,distances)}')
                 improvement_found = True
         if not improvement_found:
             noImprovement = True

@@ -2,8 +2,1348 @@ cultureInfo it-IT
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
-			  "Language": "en-US"
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "statistiche": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "statistiche": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.istanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "Istanza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "istanza": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.algoritmo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "Algoritmo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "algoritmo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.distanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "Distanza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "distanza": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "Tempo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pulse": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "measure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "stroke": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.nr_nodi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "NrNodi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nr nodi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NrNodi": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.sum_distanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "SumDistanza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum distanza": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SumDistanza": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation distanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "aggregation distanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "total distanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "aggregate distanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "amount distanza": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Distanza": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.sum_tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "SumTempo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SumTempo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "aggregation tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "total tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "aggregate tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "amount tempo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "sum rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sum cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sum beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sum speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sum pulse": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "Tempo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche.sum_nr_nodi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche",
+			          "ConceptualProperty": "SumNrNodi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum nr nodi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SumNrNodi": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation nr nodi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "aggregation nr nodi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "total nr nodi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "aggregate nr nodi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "amount nr nodi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "statistiche gap": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Statistiche_Gap": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "statistiche cavity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "statistiche aperture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "statistiche hole": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche opening": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche break": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche breach": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche slit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche fissure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche crack": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "statistiche interruption": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.istanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Istanza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "istanza": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.algoritmo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Algoritmo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "algoritmo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.distanza": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Distanza"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "distanza": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.tempo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Tempo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tempo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rhythm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cadence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "beat": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "speed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pulse": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "measure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "stroke": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.ottimo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Ottimo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ottimo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "statistiche_gap.gap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Statistiche_Gap",
+			          "ConceptualProperty": "Gap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gap": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cavity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "aperture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "hole": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "opening": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "break": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "breach": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "slit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "fissure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "crack": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "interruption": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "statistiche_gap_has_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap.gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_gaps"
+			        }
+			      ]
+			    },
+			    "statistiche_gap_has_ottimo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.ottimo": {
+			          "Target": {
+			            "Entity": "statistiche_gap.ottimo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.ottimo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_ottimos"
+			        }
+			      ]
+			    },
+			    "statistiche_gap_has_tempo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.tempo": {
+			          "Target": {
+			            "Entity": "statistiche_gap.tempo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.tempo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_tempi"
+			        }
+			      ]
+			    },
+			    "statistiche_gap_has_distanza": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.distanza": {
+			          "Target": {
+			            "Entity": "statistiche_gap.distanza"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.distanza"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_distanzas"
+			        }
+			      ]
+			    },
+			    "statistiche_gap_has_algoritmo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.algoritmo": {
+			          "Target": {
+			            "Entity": "statistiche_gap.algoritmo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.algoritmo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_algoritmos"
+			        }
+			      ]
+			    },
+			    "statistiche_gap_has_istanza": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche_Gap"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche_gap": {
+			          "Target": {
+			            "Entity": "statistiche_gap"
+			          }
+			        },
+			        "statistiche_gap.istanza": {
+			          "Target": {
+			            "Entity": "statistiche_gap.istanza"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche_gap"
+			            },
+			            "Object": {
+			              "Role": "statistiche_gap.istanza"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiche_gaps_have_istanzas"
+			        }
+			      ]
+			    },
+			    "statistiche_has_sum_nr_nodi": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.sum_nr_nodi": {
+			          "Target": {
+			            "Entity": "statistiche.sum_nr_nodi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.sum_nr_nodi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_sum_nr_nodi"
+			        }
+			      ]
+			    },
+			    "statistiche_has_sum_tempo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.sum_tempo": {
+			          "Target": {
+			            "Entity": "statistiche.sum_tempo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.sum_tempo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_sum_tempo"
+			        }
+			      ]
+			    },
+			    "statistiche_has_sum_distanza": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.sum_distanza": {
+			          "Target": {
+			            "Entity": "statistiche.sum_distanza"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.sum_distanza"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_sum_distanza"
+			        }
+			      ]
+			    },
+			    "statistiche_has_nr_nodi": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.nr_nodi": {
+			          "Target": {
+			            "Entity": "statistiche.nr_nodi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.nr_nodi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_nr_nodis"
+			        }
+			      ]
+			    },
+			    "statistiche_has_tempo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.tempo": {
+			          "Target": {
+			            "Entity": "statistiche.tempo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.tempo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_tempi"
+			        }
+			      ]
+			    },
+			    "statistiche_has_distanza": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.distanza": {
+			          "Target": {
+			            "Entity": "statistiche.distanza"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.distanza"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_distanzas"
+			        }
+			      ]
+			    },
+			    "statistiche_has_algoritmo": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.algoritmo": {
+			          "Target": {
+			            "Entity": "statistiche.algoritmo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.algoritmo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_algoritmos"
+			        }
+			      ]
+			    },
+			    "statistiche_has_istanza": {
+			      "Binding": {
+			        "ConceptualEntity": "Statistiche"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "statistiche": {
+			          "Target": {
+			            "Entity": "statistiche"
+			          }
+			        },
+			        "statistiche.istanza": {
+			          "Target": {
+			            "Entity": "statistiche.istanza"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "statistiche"
+			            },
+			            "Object": {
+			              "Role": "statistiche.istanza"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "statistiches_have_istanzas"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
 			}
 		contentType: json
 
