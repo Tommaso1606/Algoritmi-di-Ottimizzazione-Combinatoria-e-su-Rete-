@@ -9,7 +9,7 @@ from itertools import combinations
 import itertools
 import json
 
-ISTANCE_NAME = "ch130"
+ISTANCE_NAME = "pcb442"
 
 def main():
     nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
@@ -43,7 +43,7 @@ def main():
 
 
     # Iterazione con parametri ricercati attraverso RandomSearch
-    nTest = 1000
+    nTest = 200
 
     startTime = time.perf_counter()
     tour2 = randomSearchSimulatedAnnealing(tour, distances,tK,tF,nIter,nNoImprovement,alfa,nTest)

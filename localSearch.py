@@ -51,7 +51,8 @@ def localSearchFirstImprovement(tour: List, distances: Dict[Tuple[int,int], floa
             newTour = twoOptSwap(tour, i, k)
             if isAcceptable(tour, newTour, distances):
                 tour = newTour
-                moveSpace = generateTwoOptSpace(tour)
+                #moveSpace = generateTwoOptSpace(tour)
+                random.shuffle(moveSpace)
                 improvement_found = True
                 break
         if not improvement_found:
@@ -74,8 +75,9 @@ def localSearchBestImprovement(tour: List, distances: Dict[Tuple[int,int], float
                 improvement_found = True
         if not improvement_found:
             noImprovement = True
-        else: 
-            moveSpace = generateTwoOptSpace(tour)
+        #else: 
+            #moveSpace = generateTwoOptSpace(tour)
+            #random.shuffle(moveSpace)
 
     return tour
 
@@ -84,9 +86,10 @@ def isAcceptable(startTour: List[int], endTour: List[int],distances: Dict[Tuple[
 
 def generateTwoOptSpace(tour: List[int]) -> List[Tuple[int,int]]:
     n = len(tour)
+    # Combinazione di indici
     swaps = list(combinations(range(1,n-2), 2))
-    random.seed(42)
-    random.shuffle(swaps)
+    #random.seed(42)
+    #random.shuffle(swaps) va fatto nella funzione chiamante
     return swaps
 
 if __name__=="__main__":

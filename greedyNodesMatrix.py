@@ -8,7 +8,7 @@ import time
 import os
 import shutil
 
-PATH = "ch130.tsp"
+PATH = "pcb442.tsp"
 BEST = 0
 SOLUTION = "solution"
 DISTANCE = "distance"
