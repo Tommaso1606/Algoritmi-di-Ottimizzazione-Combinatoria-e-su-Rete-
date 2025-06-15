@@ -9,7 +9,7 @@ from itertools import combinations
 import itertools
 import json
 
-ISTANCE_NAME = "pcb442"
+ISTANCE_NAME = "pr2392"
 
 def main():
     nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")

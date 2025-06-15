@@ -1,6 +1,10 @@
 table Statistiche_Gap
 	lineageTag: 3d71c8c3-5347-4c01-93d9-b70ec4d8d268
 
+	measure EfficienzaMedia = AVERAGE(Statistiche_Gap[Efficienza])
+		formatString: 0.00
+		lineageTag: 4d36dd33-da4f-49c7-af96-fcafb66a16d9
+
 	column Istanza
 		lineageTag: 5a9080e9-6a91-41db-a58d-64b13b716bf3
 		summarizeBy: none
@@ -56,21 +60,53 @@ table Statistiche_Gap
 
 		annotation SummarizationSetBy = Automatic
 
+	column Efficienza
+		lineageTag: 57bc934b-1d7e-4132-834c-1be3770abbd1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Efficienza]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition Statistiche_Gap = calculated
 		mode: import
 		source = ```
 				
-				VAR a =SUMMARIZECOLUMNS(
-				    Statistiche[Istanza],
-				    Statistiche[Algoritmo],
-				    Statistiche[Distanza],
-				    Statistiche[Tempo],
-				    "Ottimo", CALCULATE(MIN(Statistiche[Distanza]), ALLEXCEPT(Statistiche, Statistiche[Istanza]))
+				VAR a =
+				    SUMMARIZECOLUMNS(
+				        Statistiche[Istanza],
+				        Statistiche[Algoritmo],
+				        Statistiche[Distanza],
+				        Statistiche[Tempo],
+				        "Ottimo", CALCULATE(
+				            MIN(Statistiche[Distanza]),
+				            ALLEXCEPT(Statistiche, Statistiche[Istanza])
+				        )
+				    )
+				
+				VAR b = FILTER(a, Statistiche[Algoritmo] <> "Gurobi")
+				
+				VAR c = ADDCOLUMNS(
+				    b,
+				    "Gap", DIVIDE(ABS([Distanza] - [Ottimo]), [Ottimo])
 				)
-				var b = FILTER(a,Statistiche[Algoritmo] <> "Gurobi")
-				var c = ADDCOLUMNS(b,"Gap",ABS([Ottimo]-Statistiche[Distanza])/Statistiche[Distanza])
-				--VAR d = ADDCOLUMNS(c,"Efficenza",1/([Gap]*[Tempo]))
-				return c
+				
+				VAR d = ADDCOLUMNS(
+				    c,
+				    "Efficienza",
+				    VAR g = [Gap]
+				    VAR t = [Tempo]
+				    VAR alfa = 0.65
+				    RETURN IF(
+				        g = 0,
+				        DIVIDE(1, (1-alfa)*t),           // Oppure 99999 o altro valore simbolico
+				        DIVIDE(1, (alfa*g) + ((1-alfa)*t))
+				    )
+				)
+				
+				RETURN d
 				
 				```
 

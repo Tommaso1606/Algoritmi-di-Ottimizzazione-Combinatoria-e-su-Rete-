@@ -6,7 +6,7 @@ import copy
 from itertools import combinations
 import random
 
-ISTANCE_NAME = "ch130"
+ISTANCE_NAME = "pr2392"
 
 def main():
     nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
