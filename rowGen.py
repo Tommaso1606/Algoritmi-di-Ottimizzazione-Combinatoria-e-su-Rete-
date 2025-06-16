@@ -4,7 +4,7 @@ from gurobipy import GRB
 from typing import List, Tuple,Dict,Any
 import time
 
-ISTANCE_NAME = "att48"
+ISTANCE_NAME = "ch130"
 
 def main():
 
@@ -35,7 +35,7 @@ def solve(nodes: Dict[int, Tuple[float, float]], dist: Dict[Tuple[int, int], flo
     #mod.addConstrs(Xvars.sum('*',i) == 1 for i in Nodes)
     
     # Disattiva l'output nel terminale di Gurobi
-    mod.setParam("OutputFlag", 0)
+    #mod.setParam("OutputFlag", 0)
 
     stop = False
     
