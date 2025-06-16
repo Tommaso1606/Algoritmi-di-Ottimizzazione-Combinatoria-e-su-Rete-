@@ -4,110 +4,111 @@ from gurobipy import GRB
 from typing import List, Tuple,Dict,Any
 import time
 
-
-ISTANCE_NAME = "ch130"
+ISTANCE_NAME = "att48"
 
 def main():
 
-    Nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
+    nodes = readNodes(f"{ISTANCE_NAME}/{ISTANCE_NAME}.tsp")
+    print(nodes)
 
-    dimension = len(Nodes)
+    dimension = len(nodes)
 
-    Dist = calculateEdges(Nodes,dimension)
+    dist = calculateEdges(nodes,dimension)
 
     startTime = time.perf_counter()
-    SOL,distance = solve(Nodes,Dist)
+    solution,distance = solve(nodes,dist)
     endTime = time.perf_counter()  
       
-    plotOrientedSolution(Nodes, SOL, title=f"Soluzione Ottima ATSP. Distance: {distance:.2f}. Time: {(endTime-startTime):.6f}s",istanceName=ISTANCE_NAME,fileName=f"{ISTANCE_NAME}_Ottimo")
+    plotOrientedSolution(nodes, solution, title=f"Soluzione Ottima ATSP. Distance: {distance:.2f}. Time: {(endTime-startTime):.6f}s",istanceName=ISTANCE_NAME,fileName=f"{ISTANCE_NAME}_Ottimo")
 
-def solve(Nodes,Dist):
+def solve(nodes: Dict[int, Tuple[float, float]], dist: Dict[Tuple[int, int], float]) -> Tuple[List[Tuple[int,int]],float]:
+    
     mod = gp.Model("TSP")
 
-    Xvars = mod.addVars(Dist.keys(), obj = Dist, vtype = GRB.BINARY, name = "x")
+    Xvars = mod.addVars(dist.keys(), obj = dist, vtype = GRB.BINARY, name = "x")
 
-    outstar = mod.addConstrs(gp.quicksum(Xvars[i,j] for j in Nodes if i != j) == 1 for i in Nodes)
+    # Outstar
+    mod.addConstrs(gp.quicksum(Xvars[i,j] for j in nodes if i != j) == 1 for i in nodes)
 
-    instar = mod.addConstrs(Xvars.sum('*',i) == 1 for i in Nodes)
+    # Instar
+    mod.addConstrs(gp.quicksum(Xvars[j,i] for j in nodes if j != i) == 1 for i in nodes)
+    #mod.addConstrs(Xvars.sum('*',i) == 1 for i in Nodes)
     
+    # Disattiva l'output nel terminale di Gurobi
     mod.setParam("OutputFlag", 0)
 
     stop = False
     
-    NumIt = 0
+    nItr = 0
 
     distance = 0
     
-    
     while not stop :
     
-        NumIt = NumIt +1 
+        nItr = nItr +1 
 
         mod.optimize()
 
-        LowerBound = mod.ObjVal
+        # Lower Bound
+        mod.ObjVal
         
         distance = mod.ObjVal
 
-        SOL = []
+        solution = []
         for (i,j) in Xvars :
             if Xvars[i,j].X > 0.5 :
-                SOL.append((i,j))
+                solution.append((i,j))
                 
-        feasible, Tour = LookForMinSubTour(SOL,Nodes)
+        feasible, tour = LookForMinSubTour(solution,nodes)
 
         if feasible :
             stop = True 
         else:
-            mod.addConstr(gp.quicksum(Xvars[i,j] for i in Tour for j in Tour if i != j) <= len(Tour) -1)
-        
-        #print("Numero iterazione =", NumIt)
-        #print("Lower Bound = ", LowerBound)
-        #print("Soluzione corrente =", SOL)
-        #print("Subtour individuato = ", Tour)
-    return SOL,distance
+            mod.addConstr(gp.quicksum(Xvars[i,j] for i in tour for j in tour if i != j) <= len(tour) -1)
+            
+    return solution,distance
     
-def LookForSubTours(SOL, FirstNode,Nodes):
+def LookForSubTours(solution: List[Tuple[int,int]], firstNode: int,nodes: Dict[int, Tuple[float, float]]) -> Tuple[bool,List[int]]:
 
     feasible = True
 
-    UnVisited = list(Nodes.keys())
-    Visited = []
-    NextNode = FirstNode
+    unVisited = list(nodes.keys())
+    visited = []
+    nextNode = firstNode
     
-    while NextNode not in Visited :
+    while nextNode not in visited :
         
-        CurrentNode = NextNode
-        UnVisited.remove(CurrentNode)
-        Visited.append(CurrentNode)
+        currentNode = nextNode
+        unVisited.remove(currentNode)
+        visited.append(currentNode)
         
-        for (i,j) in SOL :
-            if i == CurrentNode :
-                NextNode = j
+        for (i,j) in solution :
+            if i == currentNode :
+                nextNode = j
                 break
         
-    if len(UnVisited) > 0 :
+    if len(unVisited) > 0 :
         feasible = False
         
-    return feasible, Visited
+    return feasible, visited
 
-def LookForMinSubTour(SOL,Nodes):
+def LookForMinSubTour(solution: List[Tuple[int,int]],nodes: Dict[int, Tuple[float, float]]) -> Tuple[bool,List[tuple[int,int]]]:
     
-    UnVisited = list(Nodes.keys())
-    MinTour = list(Nodes.keys())
+    unVisited = list(nodes.keys())
+    minTour = list(nodes.keys())
     
-    while len(UnVisited) > 0 :
+    while len(unVisited) > 0 :
         
-        FirstNode = UnVisited[0]
-        feasible, SubTour = LookForSubTours(SOL, FirstNode,Nodes)
+        firstNode = unVisited[0]
+        feasible, SubTour = LookForSubTours(solution, firstNode,nodes)
         
-        if len(SubTour) <= len(MinTour):
-            MinTour = SubTour
+        if len(SubTour) <= len(minTour):
+            minTour = SubTour
         
         for i in SubTour :
-            UnVisited.remove(i)
+            unVisited.remove(i)
         
-    return feasible, MinTour
+    return feasible, minTour
 
 if __name__=="__main__":
     main()
